@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  test-ecs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./:/go/src/github.com/heizenrader/test-ecs
+    # environment:
+    # RAPID_API_ENDPOINT: 0.0.0.0:80
+    command: guard -w ./**/*.go -- go run ./main.go
+
+    container_name: test-ecs
