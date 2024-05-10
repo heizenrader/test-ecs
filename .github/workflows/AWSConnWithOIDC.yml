@@ -35,7 +35,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: print aws ssm param
-        run: aws ssm get-parameater --name=hello-test --query Parameter.Value
+        run: aws ssm get-parameter --name=hello-test --query Parameter.Value
 
       - name: print assumed role
         run: aws sts get-caller-identity
